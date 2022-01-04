@@ -8,20 +8,29 @@ services:
     container_name: nginx
     restart: always
     environment:
-      DEFAULT_HOST: default.vhost
+      - DEFAULT_HOST=selfhostgang.dynv6.net
+      - ENABLE_IPV6=true
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      #- ./certs:/etc/nginx/certs
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-        #networks:
-        #- nginx
+      - "./certs:/etc/nginx/certs"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "/etc/nginx/vhost.d"
+      - "/usr/share/nginx/html"
+    networks:
+        - nginx
+  nginx-letsencrypt-companion:
+    restart: always
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - "./certs:/etc/nginx/certs"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    volumes_from:
+      - "frontproxy"
+volumes:
+  certs-volume:
 
-        #networks:
-        #  nginx:
-        #    driver: bridge
-  whoami:
-    image: jwilder/whoami
-    environment:
-      - VIRTUAL_HOST=whoami.localhost
+networks:
+  nginx:
+    driver: bridge

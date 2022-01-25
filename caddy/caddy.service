@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 User=ubuntu
-ExecStart=sudo caddy start --config /home/ubuntu/docker-pi/caddy/Caddyfile
+ExecStart=caddy start --config /home/ubuntu/docker-pi/caddy/Caddyfile
 Restart=on-failure
 StartLimitInterval=600
 

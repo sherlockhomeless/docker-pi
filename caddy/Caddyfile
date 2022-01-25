@@ -14,7 +14,7 @@ nextcloud.selfhostgang.dynv6.net {
 wiki.selfhostgang.dynv6.net {
         reverse_proxy localhost:8030
         log {
-                 output file /home/ubuntu/wiki_nextcloud.log {
+                 output file /home/ubuntu/wiki.log {
                         roll_size 10MiB
                 }
 

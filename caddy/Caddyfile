@@ -1,9 +1,11 @@
 selfhostgang.dynv6.net {
-	root * /var/www/html 
+	root * /var/www/html
 	file_server
 }
 
 calendar.selfhostgang.dynv6.net {
-    reverse_proxy 127.0.0.1:5232
+	reverse_proxy 127.0.0.1:5232
+	log {
+		output file /var/log/access.log
+	}
 }
-

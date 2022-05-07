@@ -1,2 +1,4 @@
 **/secret
 **/.env
+radicale_data/*
+radicale_config/users

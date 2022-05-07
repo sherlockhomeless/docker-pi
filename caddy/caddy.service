@@ -7,7 +7,9 @@ After=network.target
 User=ubuntu
 ExecStart=caddy run --config /home/ubuntu/docker-pi/caddy/Caddyfile
 Restart=on-failure
-StartLimitInterval=600
+StartLimitIntervalSec=300
+SartLimitBurst=10
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

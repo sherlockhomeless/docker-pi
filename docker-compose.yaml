@@ -1,29 +1,25 @@
 version: '3.7'
 
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+    driver: bridge
+
 services:
-  radicale:
-    image: tomsquest/docker-radicale
-    container_name: radicale
-    ports:
-      - 127.0.0.1:5232:5232
-    init: true
-    read_only: true
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-    cap_add:
-      - SETUID
-      - SETGID
-      - CHOWN
-      - KILL
-    healthcheck:
-      test: curl -f http://127.0.0.1:5232/.web || exit 1
-      interval: 30s
-      retries: 3
-    restart: always 
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports: 
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./radicale_data/collections:/data
-      - ./radicale_config/:/config:ro
+      - /home/ubuntu/docker-pi/Caddyfile:/etc/caddy/Caddyfile
+      - /home/ubuntu/caddy-data:/data
+      - /home/ubuntu/caddy-config:/config
+    networks:
+      - web
+      - internal
 
 

@@ -24,5 +24,16 @@ services:
     networks:
       - web
       - internal
+    restart: unless-stopped
 
-
+  radicale:
+    image: tomsquest/docker-radicale
+    container_name: radicale
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:5232:5232
+    volumes:
+      - /home/ubuntu/radicale-data/:/data
+      - /home/ubuntu/docker-pi/radicale-users/users:/etc/radicale/users
+    networks:
+      - internal

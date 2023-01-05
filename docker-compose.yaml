@@ -20,7 +20,7 @@ services:
       - /home/ubuntu/docker-pi/Caddyfile:/etc/caddy/Caddyfile
       - /home/ubuntu/caddy-data:/data
       - /home/ubuntu/caddy-config:/config
-      - /var/www/html:/var/www/html
+      - /home/ubuntu/hugo-site/public/:/var/www/html
     networks:
       - web
       - internal

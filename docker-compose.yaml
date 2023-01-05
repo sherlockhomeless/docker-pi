@@ -33,7 +33,7 @@ services:
     ports:
       - 127.0.0.1:5232:5232
     volumes:
-      - /home/ubuntu/radicale-data/:/data
-      - /home/ubuntu/docker-pi/radicale-users/users:/etc/radicale/users
+      - /home/ubuntu/radicale-data/:/data:rw
+      - /home/ubuntu/docker-pi/radicale-config:/etc/radicale/:ro
     networks:
       - internal

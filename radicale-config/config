@@ -7,7 +7,7 @@ hosts = 0.0.0.0:5232
 [auth]
 type = htpasswd
 # Htpasswd filename
-htpasswd_filename = /etc/radicale/users
+htpasswd_filename = /config/users
 htpasswd_encryption = plain
 [rights]
 [storage]

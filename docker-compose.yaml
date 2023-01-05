@@ -31,7 +31,7 @@ services:
     container_name: radicale
     restart: unless-stopped
     ports:
-      - 127.0.0.1:5232:5232
+      - "127.0.0.1:5232:5232"
     volumes:
       - /home/ubuntu/radicale-data/:/data:rw
       - /home/ubuntu/docker-pi/radicale-config:/etc/radicale/:ro

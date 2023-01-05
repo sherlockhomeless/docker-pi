@@ -7,7 +7,7 @@ selfhostgang.dynv6.net {
 }
 
  calendar.selfhostgang.dynv6.net {
- 	reverse_proxy 127.0.0.1:5232
+ 	reverse_proxy radicale:5232
  	log {
  		output file /config/radicale.log
  	}

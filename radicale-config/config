@@ -14,5 +14,5 @@ htpasswd_encryption = plain
 filesystem_folder = /data/
 [web]
 [logging]
-level = info
+level = debug
 [headers]

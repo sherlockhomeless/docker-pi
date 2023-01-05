@@ -1,5 +1,7 @@
 version: '3.7'
-
+# create networks with: 
+# docker network create web
+# docker network create --internal caddy_internal 
 networks:
   web:
     external: true
@@ -18,6 +20,7 @@ services:
       - /home/ubuntu/docker-pi/Caddyfile:/etc/caddy/Caddyfile
       - /home/ubuntu/caddy-data:/data
       - /home/ubuntu/caddy-config:/config
+      - /var/www/html:/var/www/html
     networks:
       - web
       - internal

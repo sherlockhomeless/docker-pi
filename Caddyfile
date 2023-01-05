@@ -1,6 +1,9 @@
 selfhostgang.dynv6.net {
 	root * /var/www/html
 	file_server
+    log {
+        output file /config/caddy.log
+        }
 }
 
 calendar.selfhostgang.dynv6.net {

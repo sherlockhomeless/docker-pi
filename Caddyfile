@@ -12,3 +12,11 @@ selfhostgang.dynv6.net {
  		output file /config/radicale.log
  	}
  }
+
+ syncthing.selfhostgang.dynv6.net {
+ 	reverse_proxy syncthing:8384
+ 	log {
+ 		output file /config/syncthing.log
+ 	}
+ }
+

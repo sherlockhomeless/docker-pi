@@ -17,10 +17,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /home/ubuntu/docker-pi/Caddyfile:/etc/caddy/Caddyfile
-      - /home/ubuntu/caddy-data:/data
-      - /home/ubuntu/caddy-config:/config
-      - /home/ubuntu/hugo-site/public/:/var/www/html
+      - /home/ml/docker-pi/Caddyfile:/etc/caddy/Caddyfile
+      - /home/ml/caddy-data:/data
+      - /home/ml/caddy-config:/config
+      - /home/ml/hugo-site/public/:/var/www/html
     networks:
       - web
       - internal
@@ -33,7 +33,8 @@ services:
     ports:
       - "127.0.0.1:5232:5232"
     volumes:
-      - /home/ubuntu/radicale-data/:/data/:rw
-      - /home/ubuntu/docker-pi/radicale-config:/config/:ro
+      - /home/ml/radicale-data/:/data/:rw
+      - /home/ml/docker-pi/radicale-config:/config/:ro
     networks:
       - internal
+
